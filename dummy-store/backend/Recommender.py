@@ -96,7 +96,7 @@ def getRecommendedItems(uid):
         if users[0] == uid:
             # print('lol user reco')
             for items in users[1]:
-                print(items[0])
+                # print(items[0])
                 itemInfo.append({'_id': str(items[0]), 'productName': con.getName(items[0])})
                 # itemInfo.append()
                 # itemInfo.append(con.getName(items[0]))
