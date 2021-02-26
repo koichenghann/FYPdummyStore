@@ -1,0 +1,19 @@
+<div class="jumbotron text-center">
+  <h1>Recommnedations</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let product of fetchedRecipe">
+      <div class="card">
+        <!-- <img class="card-img-top" src="img_avatar1.png" alt="Card image"> -->
+        <!-- the person here is actually a recipe or product -->
+        <div class="card-body">
+          <h4 class="card-title">{{product.productName}}</h4>
+          <p class="card-text" style="color:grey">{{product._id}}</p>
+          <a (click)="click_handler(product._id)" class="btn btn-primary">View Product</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
