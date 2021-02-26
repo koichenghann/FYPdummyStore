@@ -6,6 +6,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ProductComponent } from './products/product/product.component';
 import { ProductsComponent } from './products/products.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { CartComponent } from './cart/cart.component';
+import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
   {path:'', redirectTo: '/login', pathMatch: 'full'},
@@ -15,6 +17,8 @@ const routes: Routes = [
   {path: 'recommendations', component: RecommendationsComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'products/product', component: ProductComponent},
+  {path: 'cart', component: CartComponent},
+  {path: 'order', component: OrderComponent},
 ];
 
 @NgModule({

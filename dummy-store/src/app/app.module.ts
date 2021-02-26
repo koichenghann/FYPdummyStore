@@ -18,6 +18,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './products/product/product.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { CartComponent } from './cart/cart.component';
+import { OrderComponent } from './order/order.component';
 
 
 
@@ -30,7 +31,8 @@ import { CartComponent } from './cart/cart.component';
     ProductsComponent,
     ProductComponent,
     SignupComponent,
-    CartComponent
+    CartComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

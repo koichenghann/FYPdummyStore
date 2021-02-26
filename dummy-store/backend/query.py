@@ -6,9 +6,9 @@ con = databaseCon.Database()
 
 # print(con.getProducts())
 
-views = [{'product': '', 'user': '', 'date': ''}]
-carts = [{'product': '', 'user': '', 'discarded': False}]
-orders = [{'product': '', 'user': '', 'total': 0.0, 'date': ''}]
+# views = [{'product': '', 'user': '', 'date': ''}]
+# carts = [{'product': '', 'user': '', 'discarded': False}]
+# orders = [{'product': '', 'user': '', 'total': 0.0, 'date': ''}]
 
 # combined = [{'product': '', 'user': '', 'views': 0, 'cart': ''}]
 
@@ -21,29 +21,31 @@ orders = [{'product': '', 'user': '', 'total': 0.0, 'date': ''}]
 #   print(x)
 
 
-users = []
-def generateDummyData():
-  genUsers()
-  setViews()
+# users = []
+# def generateDummyData():
+#   genUsers()
+#   getUsersIds()
+#   setViews()
 
-def genUsers():
-  usersCount = 0
-  con.resetUsers()
-  while usersCount < 50:
-    con.createUser({'username': 'T' + str(usersCount + 1), 'password': 'T' + str(usersCount + 1)})
-    usersCount += 1
-    print('user added: ' + str(usersCount))
-  users = con.getUsers()
-  for x in users: print(x)
-
-
-usersIds = ['6038e8ed249cfd14db183dec', '6038e8ed249cfd14db183ded', '6038e8ed249cfd14db183dee', '6038e8ed249cfd14db183def', '6038e8ed249cfd14db183df0', '6038e8ed249cfd14db183df1', '6038e8ed249cfd14db183df2', '6038e8ed249cfd14db183df3', '6038e8ed249cfd14db183df4', '6038e8ee249cfd14db183df5', '6038e8ee249cfd14db183df6', '6038e8ee249cfd14db183df7', '6038e8ee249cfd14db183df8', '6038e8ee249cfd14db183df9', '6038e8ee249cfd14db183dfa', '6038e8ee249cfd14db183dfb', '6038e8ee249cfd14db183dfc', '6038e8ee249cfd14db183dfd', '6038e8ee249cfd14db183dfe', '6038e8ee249cfd14db183dff', '6038e8ee249cfd14db183e00', '6038e8ee249cfd14db183e01', '6038e8ee249cfd14db183e02', '6038e8ee249cfd14db183e03', '6038e8ee249cfd14db183e04', '6038e8ee249cfd14db183e05', '6038e8ee249cfd14db183e06', '6038e8ee249cfd14db183e07', '6038e8ee249cfd14db183e08', '6038e8ee249cfd14db183e09', '6038e8ee249cfd14db183e0a', '6038e8ee249cfd14db183e0b', '6038e8ee249cfd14db183e0c', '6038e8ee249cfd14db183e0d', '6038e8ee249cfd14db183e0e', '6038e8ee249cfd14db183e0f', '6038e8ee249cfd14db183e10', '6038e8ee249cfd14db183e11', '6038e8ee249cfd14db183e12', '6038e8ee249cfd14db183e13', '6038e8ee249cfd14db183e14', '6038e8ee249cfd14db183e15', '6038e8ee249cfd14db183e16', '6038e8ee249cfd14db183e17', '6038e8ee249cfd14db183e18', '6038e8ee249cfd14db183e19', '6038e8ef249cfd14db183e1a', '6038e8ef249cfd14db183e1b', '6038e8ef249cfd14db183e1c', '6038e8ef249cfd14db183e1d']
-def getUsersIds():
-  usersIds = []
-  users = con.getUsers()
-  for x in users:
-    usersIds.append(str(x['_id']))
-  print(usersIds)
+# def genUsers():
+#   usersCount = 0
+#   con.resetUsers()
+#   while usersCount < 50:
+#     con.createUser({'username': 'T' + str(usersCount + 1), 'password': 'T' + str(usersCount + 1)})
+#     usersCount += 1
+#     print('user added: ' + str(usersCount))
+#   users = con.getUsers()
+#   for x in users: print(x)
+#
+#
+# # usersIds = ['6038e8ed249cfd14db183dec', '6038e8ed249cfd14db183ded', '6038e8ed249cfd14db183dee', '6038e8ed249cfd14db183def', '6038e8ed249cfd14db183df0', '6038e8ed249cfd14db183df1', '6038e8ed249cfd14db183df2', '6038e8ed249cfd14db183df3', '6038e8ed249cfd14db183df4', '6038e8ee249cfd14db183df5', '6038e8ee249cfd14db183df6', '6038e8ee249cfd14db183df7', '6038e8ee249cfd14db183df8', '6038e8ee249cfd14db183df9', '6038e8ee249cfd14db183dfa', '6038e8ee249cfd14db183dfb', '6038e8ee249cfd14db183dfc', '6038e8ee249cfd14db183dfd', '6038e8ee249cfd14db183dfe', '6038e8ee249cfd14db183dff', '6038e8ee249cfd14db183e00', '6038e8ee249cfd14db183e01', '6038e8ee249cfd14db183e02', '6038e8ee249cfd14db183e03', '6038e8ee249cfd14db183e04', '6038e8ee249cfd14db183e05', '6038e8ee249cfd14db183e06', '6038e8ee249cfd14db183e07', '6038e8ee249cfd14db183e08', '6038e8ee249cfd14db183e09', '6038e8ee249cfd14db183e0a', '6038e8ee249cfd14db183e0b', '6038e8ee249cfd14db183e0c', '6038e8ee249cfd14db183e0d', '6038e8ee249cfd14db183e0e', '6038e8ee249cfd14db183e0f', '6038e8ee249cfd14db183e10', '6038e8ee249cfd14db183e11', '6038e8ee249cfd14db183e12', '6038e8ee249cfd14db183e13', '6038e8ee249cfd14db183e14', '6038e8ee249cfd14db183e15', '6038e8ee249cfd14db183e16', '6038e8ee249cfd14db183e17', '6038e8ee249cfd14db183e18', '6038e8ee249cfd14db183e19', '6038e8ef249cfd14db183e1a', '6038e8ef249cfd14db183e1b', '6038e8ef249cfd14db183e1c', '6038e8ef249cfd14db183e1d']
+# usersIds = []
+# def getUsersIds():
+#   usersIds = []
+#   users = con.getUsers()
+#   for x in users:
+#     usersIds.append(str(x['_id']))
+#   print(usersIds)
 
 
 productsIds = ['60379d0adf24e6b057f4ef73', '60379d0adf24e6b057f4ef74', '60379d0adf24e6b057f4ef75', '60379d0adf24e6b057f4ef76', '60379d0adf24e6b057f4ef77', '60379d0adf24e6b057f4ef78', '60379d0adf24e6b057f4ef79', '60379d0adf24e6b057f4ef7a', '60379d0adf24e6b057f4ef7b']
@@ -54,7 +56,8 @@ def getProductsIds():
     productsIds.append(str(x['_id']))
   print(productsIds)
 
-
+users = []
+usersIds = []
 views = []
 viewsByWeekDays = [40, 50, 80, 90, 30, 50, 70]
 dates = ['2021-2-21', '2021-2-22', '2021-2-23', '2021-2-24', '2021-2-25', '2021-2-26', '2021-2-27']
@@ -63,7 +66,25 @@ usersByProduct = [30, 10, 10]
 
 productsByCategory = [[0,1,2], [4,5,6], [3,7,8]]
 viewsByUserGroups = [6, 4, 10, 8, 12, 14, 7, 8, 6, 7]
-def setViews():
+def generateData():
+  usersCount = 0
+  con.resetUsers()
+  while usersCount < 50:
+    con.createUser({'username': 'T' + str(usersCount + 1), 'password': 'T' + str(usersCount + 1)})
+    usersCount += 1
+    print('user added: ' + str(usersCount))
+  users = con.getUsers()
+  for x in users: print(x)
+
+
+  usersIds = []
+  users = con.getUsers()
+  for x in users:
+    usersIds.append(str(x['_id']))
+  print(usersIds)
+
+
+
   con.resetViews()
   con.resetCarts()
 
@@ -102,15 +123,17 @@ def setViews():
 
       #generate cart and order
       rating = 1
-      if (random.random() < 0.6):
-        discarded = random.random() < 0.5
-        con.createCart({'user': user, 'product': product, 'discarded': discarded})
-        if not discarded:
+      if (random.random() < 0.7):
+        discarded = random.random() < 0.6
+
+        if discarded:
+          con.createCart({'user': user, 'product': product, 'discarded': discarded})
           rating = 3
-          if (random.random() < 0.5):
-            rating = 5
-            con.createOrder({'user': user, 'product': product, 'date': date, 'total': 50.00})
-            print('order')
+        else:
+          rating = 5
+          con.createOrder({'user': user, 'product': product, 'date': date, 'total': 50.00})
+          print('order')
+
 
 
       con.createRating({'user': user, 'product': product, 'rating': rating})
@@ -174,11 +197,11 @@ def getProducts():
   for x in con.getProducts():
     print(x)
 
-generateDummyData()
+# generateDummyData()
 # setCarts()
 # getCarts()
 # getProductsIds()
-# setViews()
+generateData()
 # genUsers()
 # getUsersIds()
 # getProducts()

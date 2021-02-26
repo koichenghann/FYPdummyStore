@@ -93,6 +93,7 @@ def getRecommendedItems(uid):
 
     for users in recommendations.items():
         # print(users[0] == uid)
+        # print(users[0] == uid)
         if users[0] == uid:
             # print('lol user reco')
             for items in users[1]:

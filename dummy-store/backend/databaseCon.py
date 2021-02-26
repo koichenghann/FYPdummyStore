@@ -174,9 +174,29 @@ class Database:
         carts.append(x)
       return carts
 
+    def getCarts(self, user):
+      carts = []
+      print('cart: ' + str(user))
+      for x in self.db.carts.find({'user': str(user)}):
+        x['_id'] = str(x['_id'])
+
+        y = self.db.products.find_one({'_id': ObjectId(x['product'])})
+        x['product'] = y['productName']
+        carts.append(x)
+      return carts
+
     def getOrders(self):
       orders = []
       for x in self.db.orders.find():
+        orders.append(x)
+      return orders
+
+    def getOrders(self, user):
+      orders = []
+      for x in self.db.orders.find({'user': str(user)}):
+        x['_id'] = str(x['_id'])
+        y = self.db.products.find_one({'_id': ObjectId(x['product'])})
+        x['product'] = y['productName']
         orders.append(x)
       return orders
 
@@ -259,7 +279,14 @@ class Database:
 
 
     def getAnalysisResult(self):
-
+      # revenue order visitor conversion rate
+      # revenue avgorder order visitor customer
+      # top5 product
+      #
+      # product
+      # revenue itemsold views instock
+      # 7dayrevenue
+      # recentorder
       return 'yes'
 
 

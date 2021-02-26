@@ -40,6 +40,16 @@ def signup():
 def rate():
     return json.dumps(con.createRating(request.get_json()), indent=2)
 
+
+@app.route("/cart/<string:uid>", strict_slashes=False)
+def cart(uid):
+    return json.dumps(con.getCarts(uid), indent=2)
+
+@app.route("/order/<string:uid>", strict_slashes=False)
+def order(uid):
+    return json.dumps(con.getOrders(uid), indent=2)
+
+
 @app.route("/analytical", strict_slashes=False)
 def analytical():
   return json.dumps(con.getAnalysisResult())

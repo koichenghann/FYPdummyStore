@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  selector: 'app-order',
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.scss']
 })
-export class CartComponent implements OnInit {
+export class OrderComponent implements OnInit {
+
   loading = false
-  configUrl = 'http://127.0.0.1:5000/cart/';
+  configUrl = 'http://127.0.0.1:5000/order/';
   currentUser = JSON.parse(localStorage.getItem('currentUser'))
   cart: any;
   constructor(public http: HttpClient, private router: Router) { }
