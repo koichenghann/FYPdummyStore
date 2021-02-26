@@ -25,7 +25,7 @@ export class ProductComponent implements OnInit {
     this.products_retrieved_listener = this.productsService.get_products_retrieved_listener().subscribe(response => {
       this.fetchedRecipe = response
       this.product = this.fetchedRecipe.find(element => element._id == this._id);
-      this.setRating(1);
+      this.setRating(2);
     })
     this.productsService.getProducts();
   }
