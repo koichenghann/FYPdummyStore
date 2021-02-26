@@ -1,9 +1,9 @@
 <div class="jumbotron text-center">
   <h1>Recommnedations</h1>
 </div>
-
+<br><br>
 <div *ngIf="loading" class="spinner text-center">
-  <br><br>
+
   <div class="spinner-border" role="status">
     <span class="sr-only">Loading...</span>
   </div><br><br>
@@ -14,7 +14,7 @@
   <div   class="row">
     <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let product of fetchedRecipe">
       <div class="card">
-        <img class="card-img-top" src="//placehold.it/50" alt="Card image">
+        <img class="card-img-top" src="//placehold.it/100" alt="Card image">
         <!-- the person here is actually a recipe or product -->
         <div class="card-body">
           {{product.productName}}
