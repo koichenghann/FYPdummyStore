@@ -150,6 +150,35 @@ class Database:
             products.append(x)
         return products
 
+    def getUsers(self):
+      users = []
+      for x in self.db.users.find():
+        users.append(x)
+      return users
+
+    def getRatings(self):
+      ratings = []
+      for x in self.db.ratings.find():
+        ratings.append(x)
+      return ratings
+
+    def getViews(self):
+      views = []
+      for x in self.db.views.find():
+        views.append(x)
+      return views
+
+    def getCarts(self):
+      carts = []
+      for x in self.db.carts.find():
+        carts.append(x)
+      return carts
+
+    def getOrders(self):
+      orders = []
+      for x in self.db.orders.find():
+        orders.append(x)
+      return orders
 
     def getName(self, iid):
         # self.cursor.execute("SELECT recipeName FROM recipe WHERE idRecipe = " + str(iid) + ";")
@@ -159,11 +188,12 @@ class Database:
             if str(x['_id']) == iid:
                 return x['productName']
 
-
     def findUser(self, user):
        x = self.db.users.find_one({'username': user['username'], 'password': user['password']})
        if x: x['_id'] =  str(x['_id'])
        return x
+
+
 
 
     def createUser(self, user):
@@ -172,20 +202,69 @@ class Database:
             y = self.db.users.insert_one({'username': user['username'], 'password': user['password']})
             return {'_id': str(y.inserted_id), 'username': user['username'], 'password': user['password']};
 
+    def createProduct(self, product):
+        if product:
+            x = self.db.products.find_one({'productName': product['productName']})
+            if not x:
+                y = self.db.products.insert_one({'productName': product['productName'], 'price': product['price']})
+            else:
+                y = self.db.products.update({'productName': product['productName']}, {"$set" : {'price': product['price']}})
 
-    def rateProduct(self, rating):
+    def createRating(self, rating):
         if rating:
             x = self.db.ratings.find_one({'user': rating['user'], 'product': rating['product']})
-
             if not x:
                 y = self.db.ratings.insert_one({'user': rating['user'], 'product': rating['product'], 'rating': rating['rating']})
-                print('rated')
             else:
                 y = self.db.ratings.update({'user': rating['user'], 'product': rating['product']}, {"$set" : {'rating': rating['rating']}})
-                print('rated 2')
 
-            # if y: y['_id'] = str(y['_id'])
-            # return y;
+    def createCart(self, cart):
+      if cart:
+        x = self.db.carts.find_one({'user': cart['user'], 'product': cart['product']})
+        if not x:
+          y = self.db.carts.insert_one(
+            {'user': cart['user'], 'product': cart['product'], 'discarded': False})
+        else:
+          y = self.db.carts.update({'user': cart['user'], 'product': cart['product']},
+                                   {"$set": {'discarded': cart['discarded']}})
+
+    def createView(self, view):
+      x = self.db.views.insert_one({'user': view['user'], 'product': view['product'], 'date': view['date']})
+
+    def createOrder(self, order):
+      x = self.db.orders.insert_one({'user': order['user'], 'product': order['product'], 'date': order['date'], 'total': order['total']})
+
+
+
+
+    def resetUsers(self):
+      self.db.users.delete_many({})
+
+    def resetProducts(self):
+      self.db.products.delete_many({})
+
+    def resetRatings(self):
+      self.db.ratings.delete_many({})
+
+    def resetViews(self):
+      self.db.views.delete_many({})
+
+    def resetCarts(self):
+      self.db.carts.delete_many({})
+
+    def resetOrders(self):
+      self.db.orders.delete_many({})
+
+
+
+
+    def getAnalysisResult(self):
+
+      return 'yes'
+
+
+
+
 
 
 

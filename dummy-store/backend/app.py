@@ -38,7 +38,12 @@ def signup():
 
 @app.route("/rate", methods = ['POST'])
 def rate():
-    return json.dumps(con.rateProduct(request.get_json()), indent=2)
+    return json.dumps(con.createRating(request.get_json()), indent=2)
+
+@app.route("/analytical", strict_slashes=False)
+def analytical():
+  return json.dumps(con.getAnalysisResult())
+
 
 if __name__ == '__main__':
     app.run(debug=True)

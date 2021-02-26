@@ -97,14 +97,14 @@ def getRecommendedItems(uid):
             # print('lol user reco')
             for items in users[1]:
                 # print(items[0])
-                itemInfo.append({'_id': str(items[0]), 'productName': con.getName(items[0])})
+                itemInfo.append({'_id': str(items[0]), 'productName': con.getName(items[0]), 'predictedRating': items[1]})
                 # itemInfo.append()
                 # itemInfo.append(con.getName(items[0]))
         #         itemInfo.append(products['_id': items[0]]['productName'])
         #     print(itemInfo)
             # print(products)
         #     print('start printing')
-        #     print(itemInfo)
+            print(itemInfo)
         #     print(users[1])
             return(itemInfo)
             # print(users[1])
@@ -119,6 +119,8 @@ def getAllItems():
 
 def login(user):
     databaseCon.findUser(user)
+
+
 
 
 

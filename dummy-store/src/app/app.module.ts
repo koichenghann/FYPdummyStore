@@ -17,6 +17,7 @@ import { RecommendationsComponent } from './recommendations/recommendations.comp
 import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './products/product/product.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -28,7 +29,8 @@ import { SignupComponent } from './auth/signup/signup.component';
     RecommendationsComponent,
     ProductsComponent,
     ProductComponent,
-    SignupComponent
+    SignupComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
